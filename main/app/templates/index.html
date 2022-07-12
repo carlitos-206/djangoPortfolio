@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" onmousemove="randomRGB()">
+<head>
+  {%load static%}
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+</head>
+<body>
+  <div class="navigation">
+    <div class="projects">
+      <!-- this a html element that creates a line -->
+      <hr class="rgbLine" id="projectsLine">
+      <div class="link">
+        <input class="btn" id="projectsLink" type="button" onclick="location.href='/resume';" value="Projects" />
+      </div>
+    </div>
+    <div class="resume">
+      <!-- this a html element that creates a line -->
+      <hr class="rgbLine" id="resumeLine">
+      <div class="link">
+        <input class="btn" id="resumeLink" type="button" onclick="location.href='/resume';" value="Resume">
+      </div>
+    </div>
+  </div>
+  <div class="profileDiv">
+    <img id="profilePic" src="{% static 'img/bio.jpg' %}" alt="Profile Picture">
+  </div>
+  <script src="{% static 'js/index.js' %}"></script>
+</body>
+</html>

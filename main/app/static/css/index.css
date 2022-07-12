@@ -1,0 +1,108 @@
+*{
+  padding: 0px;
+  margin: 0px;
+}
+.profileDiv{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+#profilePic{
+  width: 20em;
+  height: 20em;
+  border-radius: 50%;
+}
+
+.resume{
+  width: 5em;
+  position: absolute;
+  left: 48.25%;
+  top: 88%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: +1;
+  transform: rotate(90deg);
+}
+#resumeLink{
+  text-decoration:none;
+  color: black;
+  font-size: 2vh;
+  position: relative;
+  padding: 5%;
+  border-radius: 25%;
+  left: 40%;
+  border-width:thick;
+  cursor: pointer;
+  transform: rotate(270deg);
+}
+/* this is a html element that creates a line */
+#resumeLine {
+  float: right;
+  width: 5em;  
+  height: 1vh;  
+  position: absolute;
+  left: -75%;
+  top: 50%;
+  border-color: red;
+    -webkit-transition: border-color 1s ease-out;
+    -moz-transition: border-color 1s ease-out;
+    -o-transition: border-color 1s ease-out;
+    transition: border-color 1s ease-out;
+  background-color: gray;
+  -webkit-transition: background-color .5s ease-out;
+  -moz-transition: background-color .5s ease-out;
+  -o-transition: background-color .5s ease-out;
+  transition: background-color .5s ease-out;
+  /* the transiontion to color is done in the index.js */
+}
+
+.projects{
+  width: 10em;
+  position: absolute;
+  left: 75%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: +1;
+}
+
+#projectsLink{
+  text-decoration:none;
+  color: black;
+  font-size: 2vh;
+  position: relative;
+  padding: 5%;
+  border-radius: 25%;
+  left: 90%;
+  border-width:thick;
+  cursor: pointer;
+}
+/* this is a html element that creates a line */
+#projectsLine {
+  float: left;
+  width: 13em;  
+  height: 1vh;  
+  position: absolute;
+  left: -75%;
+  top: 50%;
+  box-shadow:         3px 3px 5px 6px #ccc;
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+    -moz-box-shadow:    3px 3px 5px 6px #ccc;
+      -webkit-transition: box-shadow .5s ease-out;
+      -moz-transition: box-shadow .5s ease-out;
+      -o-transition: box-shadow .5s ease-out;
+      transition: box-shadow .5s ease-out;
+  border-color: red;
+    -webkit-transition: border-color 1s ease-out;
+    -moz-transition: border-color 1s ease-out;
+    -o-transition: border-color 1s ease-out;
+    transition: border-color 1s ease-out;
+  background-color: gray;
+  -webkit-transition: background-color .5s ease-out;
+  -moz-transition: background-color .5s ease-out;
+  -o-transition: background-color .5s ease-out;
+  transition: background-color .5s ease-out;
+  /* the transiontion to color is done in the index.js */
+}
