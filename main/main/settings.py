@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'ipinfo_django.middleware.IPinfo',
 ]
 
 ROOT_URLCONF = 'main.urls'
@@ -70,6 +71,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'main.wsgi.application'
 
+IPINFO_SETTINGS = {
+    'cache_options': {
+        'ttl': 30,
+        'maxsize': 128
+    }
+}
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases

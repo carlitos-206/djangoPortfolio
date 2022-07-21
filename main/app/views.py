@@ -1,8 +1,13 @@
+from django.http import HttpRequest
 from django.shortcuts import render,HttpResponse, redirect
 from django.http.response import HttpResponseRedirect
-from django.shortcuts import render, HttpResponse, redirect
+
 from screeninfo import get_monitors
 from user_agents import parse
+# ORM Model
+from .models import users
+
+
 # To get screen resolution
 import pyautogui
 
@@ -14,19 +19,18 @@ from dotenv import load_dotenv
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
-
+from django.conf import settings
 # Ip Info API 
 import ipinfo
 access_token = os.getenv("IP_API_KEY")
 handler = ipinfo.getHandler(access_token)
-requestDetails = handler.getDetails()
 
 #THESE ARE GLOBAL VARIABLES TO KEEP TRACK OF DEVICE COUNT SO IT DOESN'T EARSE WHEN THE USER REFRESHES THE PAGE 
 mobile = 0 
 tablet = 0
 monitor = 0
 def sendToFireStore(table, data):
-    print('')
+    print(data)
     
 def index(request):
     if request.method == "GET":
@@ -64,15 +68,15 @@ def index(request):
         data = {
             'ticket': ticket,
             'isBot':user_agent.is_bot,
-            'ip': requestDetails.ip,
+            'ip': request.ipinfo.ip,
             'location': {
-                'city': requestDetails.city,
-                'state': requestDetails.region,
-                'country': requestDetails.country,
-                'postal': requestDetails.postal,
+                'city': request.ipinfo.city,
+                'state': request.ipinfo.region,
+                'country':request.ipinfo.country,
+                'postal': request.ipinfo.postal,
                 'exact': {
-                    'latitude': requestDetails.latitude,
-                    'longitude': requestDetails.longitude
+                    'latitude': request.ipinfo.latitude,
+                    'longitude': request.ipinfo.longitude
                 },
             },
             'device':{

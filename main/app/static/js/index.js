@@ -1,4 +1,9 @@
+let html = document.getElementsByTagName('html')
+let btns = document.getElementsByClassName('btn')
+let onRaveMode = false
+
 function randomRGB(){
+  onRaveMode = true
   let rgbLine = document.getElementsByClassName('rgbLine')
   for(let i = 0 ; i < rgbLine.length; i++ ){
       rgbLine[i].setAttribute('style', `background-color: rgb(${Math.round(Math.random() * 255)}, ${Math.round(Math.random() * 255)}, ${Math.round(Math.random() * 255)});
@@ -6,10 +11,17 @@ function randomRGB(){
                                         -moz-box-shadow:    3px 3px 5px 6px #${Math.floor(Math.random()*16777215)};
                                         box-shadow:         3px 3px 5px 6px #${Math.floor(Math.random()*16777215)};`)
   }
-  let bootStrapClasses = ['btn-outline-primary', 'btn-outline-secondary', 'btn-outline-success', 'btn-outline-danger', 'btn-outline-warning', 'btn-outline-info', 'btn-outline-light', 'btn-outline-dark' ]
-  let btns = document.getElementsByClassName('btn')
   for(let i = 0 ; i<btns.length; i++){
     btns[i].setAttribute('style', `border-color: rgb(${Math.round(Math.random() * 255)}, ${Math.round(Math.random() * 255)}, ${Math.round(Math.random() * 255)} `)
+    html[0].setAttribute('style', `background-color: rgb(${Math.round(Math.random() * 255)}, ${Math.round(Math.random() * 255)}, ${Math.round(Math.random() * 255)} `)
+  }
+}
+function raveMode() {
+  if(onRaveMode){
+    onRaveMode = false
+    html[0].setAttribute('onmousemove', '')
+  }else{
+    html[0].setAttribute('onmousemove', 'randomRGB()')
   }
 }
 
