@@ -3,8 +3,13 @@
 import os
 import sys
 
+# this  allows python secrets
+import dotenv
 
 def main():
+    # call the package on server load
+    dotenv.read_dotenv()
+    
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'main.settings')
     try:
         from django.core.management import execute_from_command_line

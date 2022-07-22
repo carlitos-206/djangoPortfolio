@@ -1,4 +1,4 @@
-from django.http import HttpRequest
+from django.http import HttpRequest, JsonResponse
 from django.shortcuts import render,HttpResponse, redirect
 from django.http.response import HttpResponseRedirect
 
@@ -7,13 +7,15 @@ from user_agents import parse
 # ORM Model
 from .models import users
 
+import pprint
+
 
 # To get screen resolution
 import pyautogui
 
 # This is needed to load/hide secrets in a .env file in the same directory
 import os
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
 #fireBase API
 import firebase_admin
@@ -24,16 +26,16 @@ from django.conf import settings
 import ipinfo
 access_token = os.getenv("IP_API_KEY")
 handler = ipinfo.getHandler(access_token)
-
+print(access_token, handler, 'here')
 #THESE ARE GLOBAL VARIABLES TO KEEP TRACK OF DEVICE COUNT SO IT DOESN'T EARSE WHEN THE USER REFRESHES THE PAGE 
 mobile = 0 
 tablet = 0
 monitor = 0
-def ipKey(request):
+def getAPI(request):
     if request.is_ajax and request.method == "GET":
-        return 1
+        return JsonResponse({"message": 'hello from django' }, status = 200)
 def sendToFireStore(table, data):
-    print(data)
+    print('')
     
 def index(request):
     if request.method == "GET":
@@ -94,7 +96,7 @@ def index(request):
             }
             
         }
-        print(data)
+        pprint.pprint(data)
         return render(request, "index.html", sendToFireStore("visitor", data))
     else:
         if request.method == "POST":
