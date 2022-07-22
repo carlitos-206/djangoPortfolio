@@ -29,6 +29,9 @@ handler = ipinfo.getHandler(access_token)
 mobile = 0 
 tablet = 0
 monitor = 0
+def ipKey(request):
+    if request.is_ajax and request.method == "GET":
+        return 1
 def sendToFireStore(table, data):
     print(data)
     
